@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class P1004 {
+public class P1004_3 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
@@ -28,33 +28,30 @@ public class P1004 {
 				int r = Integer.parseInt(st.nextToken());
 				double distFrom1 = getDist(centerX, centerY, x1, y1);
 				double distFrom2 = getDist(centerX, centerY, x2, y2);
+//				System.out.println(distFrom1 + "," + distFrom2);
 				
-//				if(distFrom1 < r && distFrom2 < r || distFrom1 > r && distFrom2 > r) {
-//					isInside[i] = false;
-//				}else {					
-//					isInside[i] = true;
-//				}
-				
-				//그냥 직관적으로 생각하기. ( 필요한 부분만 생각하기 )
-				if ((distFrom1 < r && distFrom2 >= r) || (distFrom1 >= r && distFrom2 < r)) {
-					cnt++;
+				if(distFrom1 < r && distFrom2 < r || distFrom1 > r && distFrom2 > r) {
+					isInside[i] = false;
+				}else {
+					System.out.println("fff");
+					System.out.println("fff");
+					
+					isInside[i] = true;
 				}
 			}
 			
-			System.out.println(cnt); 
-			
 		}
 		
-//		for(int t = 0; t < T; t++) {
-//			int cnt = 0;
-//			for(int i = 0; i < N; i++) {
-//				if(isInside[i] == true) {
-//					cnt++;
-//				}
-//				
-//			}
-//			System.out.println(cnt);
-//		}
+		for(int t = 0; t < T; t++) {
+			int cnt = 0;
+			for(int i = 0; i < N; i++) {
+				if(isInside[i] == true) {
+					cnt++;
+				}
+				
+			}
+			System.out.println(cnt);
+		}
 		
 		
 		//둘 다 포함되는 원(중심과 점 거리, 중심과 점 거리 )-> 신경 x
